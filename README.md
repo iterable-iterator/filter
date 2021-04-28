@@ -4,12 +4,18 @@
 Iterable filtering functions for JavaScript.
 See [docs](https://iterable-iterator.github.io/filter/index.html).
 
-> :building_construction: Caveat emptor! This is work in progress. Code may be
-> working. Documentation may be present. Coherence may be. Maybe.
-
 > :warning: Depending on your environment, the code may require
 > `regeneratorRuntime` to be defined, for instance by importing
 > [regenerator-runtime/runtime](https://www.npmjs.com/package/regenerator-runtime).
+
+```js
+import {count} from '@iterable-iterator/count';
+import {filter, filterfalse} from '@iterable-iterator/filter';
+import {divisible} from '@aureooms/js-predicate';
+
+filter( divisible( 2 ) , count( 0 , 1 ) ) ; // 0 2 4 8 ...
+filterfalse( divisible( 2 ) , count( 0 , 1 ) ) ; // 1 3 5 7 ...
+```
 
 [![License](https://img.shields.io/github/license/iterable-iterator/filter.svg)](https://raw.githubusercontent.com/iterable-iterator/filter/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@iterable-iterator/filter.svg)](https://www.npmjs.org/package/@iterable-iterator/filter)
