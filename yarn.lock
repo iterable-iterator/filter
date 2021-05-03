@@ -1346,7 +1346,7 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
-"@functional-abstraction/predicate@^3.0.2":
+"@functional-abstraction/predicate@3.0.2":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@functional-abstraction/predicate/-/predicate-3.0.2.tgz#b54022b29c51124a34621b9579635ad0bc463a38"
   integrity sha512-aQO7fL0myzoUsJzPo2Qeesr10OxRntMBblUuK98PwGqbug/uljjMOKeg+TZOJ9jU0mkbzgjJZzb84gJ8UjOYOg==
