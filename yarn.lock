@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@aureooms/js-predicate@3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@aureooms/js-predicate/-/js-predicate-3.0.1.tgz#25c4c21d2f7632139ca43b1f42e00125053596cb"
-  integrity sha512-ZpWiJgBDpPqvu1ZOFruF9+CbhiXgdIwDD0XJ2Rjkj5aOJUbyJWtKe5WiywaQdGxhZonTn08Yq8mJ8JovCWwwLQ==
-
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
@@ -1350,6 +1345,11 @@
     js-yaml "^3.13.1"
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
+
+"@functional-abstraction/predicate@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@functional-abstraction/predicate/-/predicate-3.0.2.tgz#b54022b29c51124a34621b9579635ad0bc463a38"
+  integrity sha512-aQO7fL0myzoUsJzPo2Qeesr10OxRntMBblUuK98PwGqbug/uljjMOKeg+TZOJ9jU0mkbzgjJZzb84gJ8UjOYOg==
 
 "@istanbuljs/schema@^0.1.2":
   version "0.1.3"

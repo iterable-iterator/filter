@@ -1,8 +1,9 @@
 import test from 'ava';
 
+import {gt, repr} from './_fixtures.js';
+
 import {list} from '@iterable-iterator/list';
 import {filter, filtertrue} from '../../src/index.js';
-import {gt} from '@aureooms/js-predicate';
 
 test('filtertrue is filter', (t) => {
 	t.is(filtertrue, filter);
@@ -13,10 +14,7 @@ const macro = (t, predicate, input, output) => {
 };
 
 macro.title = (title, predicate, input, output) =>
-	title ||
-	`filter(${predicate.name}, ${JSON.stringify(input)}) = ${JSON.stringify(
-		output,
-	)}`;
+	title || `filter(${predicate}, ${repr(input)}) = ${repr(output)}`;
 
 test(macro, gt(0), [], []);
 test(macro, gt(0), [0], []);

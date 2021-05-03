@@ -1,18 +1,16 @@
 import test from 'ava';
 
+import {le, repr} from './_fixtures.js';
+
 import {list} from '@iterable-iterator/list';
 import {filterfalse} from '../../src/index.js';
-import {le} from '@aureooms/js-predicate';
 
 const macro = (t, predicate, input, output) => {
 	t.deepEqual(list(filterfalse(predicate, input)), output);
 };
 
 macro.title = (title, predicate, input, output) =>
-	title ||
-	`filterfalse(${predicate.name}, ${JSON.stringify(input)}) = ${JSON.stringify(
-		output,
-	)}`;
+	title || `filterfalse(${predicate}, ${repr(input)}) = ${repr(output)}`;
 
 test(macro, le(0), [], []);
 test(macro, le(0), [0], []);

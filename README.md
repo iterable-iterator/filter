@@ -11,7 +11,7 @@ See [docs](https://iterable-iterator.github.io/filter/index.html).
 ```js
 import {count} from '@iterable-iterator/count';
 import {filter, filterfalse} from '@iterable-iterator/filter';
-import {divisible} from '@aureooms/js-predicate';
+import {divisible} from '@functional-abstraction/predicate';
 
 filter( divisible( 2 ) , count( 0 , 1 ) ) ; // 0 2 4 8 ...
 filterfalse( divisible( 2 ) , count( 0 , 1 ) ) ; // 1 3 5 7 ...
