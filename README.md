@@ -15,6 +15,10 @@ import {divisible} from '@functional-abstraction/predicate';
 
 filter( divisible( 2 ) , count( 0 , 1 ) ) ; // 0 2 4 8 ...
 filterfalse( divisible( 2 ) , count( 0 , 1 ) ) ; // 1 3 5 7 ...
+
+import {cycle} from '@iterable-iterator/cycle';
+import {compress} from '@iterable-iterator/filter';
+compress( count( 0 , 1 ) , cycle( [ true , false ] ) ) ; // 0 2 4 6 ...
 ```
 
 [![License](https://img.shields.io/github/license/iterable-iterator/filter.svg)](https://raw.githubusercontent.com/iterable-iterator/filter/main/LICENSE)
