@@ -566,6 +566,69 @@
   {
     "__docId__": 48,
     "kind": "file",
+    "name": "src/compress.js",
+    "content": "import {_zip2} from '@iterable-iterator/zip';\n\n/**\n * Filters the first input iterable according to truthy and flasy values from a\n * second input iterable. The ith element of the first input iterable is output\n * if and only if the ith element of the second input iterable is truthy.\n *\n * @param {Iterable} iterable - The first input iterable to filter.\n * @param {Iterable} selector - The second input iterable containing the truthy and falsy\n * values.\n * @returns {Iterator}\n */\nexport default function* compress(iterable, selector) {\n\tfor (const [take, item] of _zip2(selector, iterable)) {\n\t\tif (take) {\n\t\t\tyield item;\n\t\t}\n\t}\n}\n",
+    "static": true,
+    "longname": "/home/runner/work/filter/filter/src/compress.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 49,
+    "kind": "function",
+    "name": "compress",
+    "memberof": "src/compress.js",
+    "generator": true,
+    "async": false,
+    "static": true,
+    "longname": "src/compress.js~compress",
+    "access": "public",
+    "export": true,
+    "importPath": "@iterable-iterator/filter/src/compress.js",
+    "importStyle": "compress",
+    "description": "Filters the first input iterable according to truthy and flasy values from a\nsecond input iterable. The ith element of the first input iterable is output\nif and only if the ith element of the second input iterable is truthy.",
+    "lineNumber": 13,
+    "unknown": [
+      {
+        "tagName": "@returns",
+        "tagValue": "{Iterator}"
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Iterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "iterable",
+        "description": "The first input iterable to filter."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Iterable"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "selector",
+        "description": "The second input iterable containing the truthy and falsy\nvalues."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Iterator"
+      ],
+      "spread": false,
+      "description": ""
+    }
+  },
+  {
+    "__docId__": 50,
+    "kind": "file",
     "name": "src/filter.js",
     "content": "/**\n * Yields all elements from input iterable that verify a given predicate.\n *\n * @example\n * // returns [ 1 , 3 , 5 , 7 , 9 ]\n * list( filter( x => x % 2 , range( 10 ) ) ) ;\n *\n * @param {Function} predicate - A unary function that returns a truthy or\n * falsy value.\n * @param {Iterable} iterable - The input iterable.\n * @returns {IterableIterator}\n */\nexport default function* filter(predicate, iterable) {\n\tfor (const item of iterable) {\n\t\tif (predicate(item)) {\n\t\t\tyield item;\n\t\t}\n\t}\n}\n",
     "static": true,
@@ -575,7 +638,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 49,
+    "__docId__": 51,
     "kind": "function",
     "name": "filter",
     "memberof": "src/filter.js",
@@ -630,7 +693,7 @@
     }
   },
   {
-    "__docId__": 50,
+    "__docId__": 52,
     "kind": "file",
     "name": "src/filterfalse.js",
     "content": "/**\n * Yields all elements from input iterable that do not verify a given predicate.\n *\n * @example\n * // returns [ 0 , 2 , 4 , 6 , 8 ]\n * list( filter( x => x % 2 , range( 10 ) ) ) ;\n *\n * @param {Function} predicate - A unary function that returns a truthy or\n * falsy value.\n * @param {Iterable} iterable - The input iterable.\n * @returns {IterableIterator}\n */\nexport default function* filterfalse(predicate, iterable) {\n\tfor (const item of iterable) {\n\t\tif (!predicate(item)) {\n\t\t\tyield item;\n\t\t}\n\t}\n}\n",
@@ -641,7 +704,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 51,
+    "__docId__": 53,
     "kind": "function",
     "name": "filterfalse",
     "memberof": "src/filterfalse.js",
@@ -696,7 +759,7 @@
     }
   },
   {
-    "__docId__": 52,
+    "__docId__": 54,
     "kind": "file",
     "name": "src/filtertrue.js",
     "content": "import filter from './filter.js';\n\n/**\n * Same as {@link filter}.\n * @function filtertrue\n */\nconst filtertrue = filter;\nexport default filtertrue;\n",
@@ -707,7 +770,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 53,
+    "__docId__": 55,
     "kind": "variable",
     "name": "filtertrue",
     "memberof": "src/filtertrue.js",
@@ -732,10 +795,10 @@
     }
   },
   {
-    "__docId__": 54,
+    "__docId__": 56,
     "kind": "file",
     "name": "src/index.js",
-    "content": "export {default as filter} from './filter.js';\nexport {default as filterfalse} from './filterfalse.js';\nexport {default as filtertrue} from './filtertrue.js';\n",
+    "content": "export {default as compress} from './compress.js';\nexport {default as filter} from './filter.js';\nexport {default as filterfalse} from './filterfalse.js';\nexport {default as filtertrue} from './filtertrue.js';\n",
     "static": true,
     "longname": "/home/runner/work/filter/filter/src/index.js",
     "access": "public",
@@ -744,7 +807,7 @@
   },
   {
     "kind": "index",
-    "content": ":speak_no_evil: [@iterable-iterator/filter](https://iterable-iterator.github.io/filter)\n==\n\nIterable filtering functions for JavaScript.\nSee [docs](https://iterable-iterator.github.io/filter/index.html).\n\n> :warning: Depending on your environment, the code may require\n> `regeneratorRuntime` to be defined, for instance by importing\n> [regenerator-runtime/runtime](https://www.npmjs.com/package/regenerator-runtime).\n\n```js\nimport {count} from '@iterable-iterator/count';\nimport {filter, filterfalse} from '@iterable-iterator/filter';\nimport {divisible} from '@aureooms/js-predicate';\n\nfilter( divisible( 2 ) , count( 0 , 1 ) ) ; // 0 2 4 8 ...\nfilterfalse( divisible( 2 ) , count( 0 , 1 ) ) ; // 1 3 5 7 ...\n```\n\n[![License](https://img.shields.io/github/license/iterable-iterator/filter.svg)](https://raw.githubusercontent.com/iterable-iterator/filter/main/LICENSE)\n[![Version](https://img.shields.io/npm/v/@iterable-iterator/filter.svg)](https://www.npmjs.org/package/@iterable-iterator/filter)\n[![Tests](https://img.shields.io/github/workflow/status/iterable-iterator/filter/ci:test?event=push&label=tests)](https://github.com/iterable-iterator/filter/actions/workflows/ci:test.yml?query=branch:main)\n[![Dependencies](https://img.shields.io/david/iterable-iterator/filter.svg)](https://david-dm.org/iterable-iterator/filter)\n[![Dev dependencies](https://img.shields.io/david/dev/iterable-iterator/filter.svg)](https://david-dm.org/iterable-iterator/filter?type=dev)\n[![GitHub issues](https://img.shields.io/github/issues/iterable-iterator/filter.svg)](https://github.com/iterable-iterator/filter/issues)\n[![Downloads](https://img.shields.io/npm/dm/@iterable-iterator/filter.svg)](https://www.npmjs.org/package/@iterable-iterator/filter)\n\n[![Code issues](https://img.shields.io/codeclimate/issues/iterable-iterator/filter.svg)](https://codeclimate.com/github/iterable-iterator/filter/issues)\n[![Code maintainability](https://img.shields.io/codeclimate/maintainability/iterable-iterator/filter.svg)](https://codeclimate.com/github/iterable-iterator/filter/trends/churn)\n[![Code coverage (cov)](https://img.shields.io/codecov/c/gh/iterable-iterator/filter/main.svg)](https://codecov.io/gh/iterable-iterator/filter)\n[![Code technical debt](https://img.shields.io/codeclimate/tech-debt/iterable-iterator/filter.svg)](https://codeclimate.com/github/iterable-iterator/filter/trends/technical_debt)\n[![Documentation](https://iterable-iterator.github.io/filter/badge.svg)](https://iterable-iterator.github.io/filter/source.html)\n[![Package size](https://img.shields.io/bundlephobia/minzip/@iterable-iterator/filter)](https://bundlephobia.com/result?p=@iterable-iterator/filter)\n",
+    "content": ":speak_no_evil: [@iterable-iterator/filter](https://iterable-iterator.github.io/filter)\n==\n\nIterable filtering functions for JavaScript.\nSee [docs](https://iterable-iterator.github.io/filter/index.html).\n\n> :warning: Depending on your environment, the code may require\n> `regeneratorRuntime` to be defined, for instance by importing\n> [regenerator-runtime/runtime](https://www.npmjs.com/package/regenerator-runtime).\n\n```js\nimport {count} from '@iterable-iterator/count';\nimport {filter, filterfalse} from '@iterable-iterator/filter';\nimport {divisible} from '@functional-abstraction/predicate';\n\nfilter( divisible( 2 ) , count( 0 , 1 ) ) ; // 0 2 4 8 ...\nfilterfalse( divisible( 2 ) , count( 0 , 1 ) ) ; // 1 3 5 7 ...\n\nimport {cycle} from '@iterable-iterator/cycle';\nimport {compress} from '@iterable-iterator/filter';\ncompress( count( 0 , 1 ) , cycle( [ true , false ] ) ) ; // 0 2 4 6 ...\n```\n\n[![License](https://img.shields.io/github/license/iterable-iterator/filter.svg)](https://raw.githubusercontent.com/iterable-iterator/filter/main/LICENSE)\n[![Version](https://img.shields.io/npm/v/@iterable-iterator/filter.svg)](https://www.npmjs.org/package/@iterable-iterator/filter)\n[![Tests](https://img.shields.io/github/workflow/status/iterable-iterator/filter/ci:test?event=push&label=tests)](https://github.com/iterable-iterator/filter/actions/workflows/ci:test.yml?query=branch:main)\n[![Dependencies](https://img.shields.io/david/iterable-iterator/filter.svg)](https://david-dm.org/iterable-iterator/filter)\n[![Dev dependencies](https://img.shields.io/david/dev/iterable-iterator/filter.svg)](https://david-dm.org/iterable-iterator/filter?type=dev)\n[![GitHub issues](https://img.shields.io/github/issues/iterable-iterator/filter.svg)](https://github.com/iterable-iterator/filter/issues)\n[![Downloads](https://img.shields.io/npm/dm/@iterable-iterator/filter.svg)](https://www.npmjs.org/package/@iterable-iterator/filter)\n\n[![Code issues](https://img.shields.io/codeclimate/issues/iterable-iterator/filter.svg)](https://codeclimate.com/github/iterable-iterator/filter/issues)\n[![Code maintainability](https://img.shields.io/codeclimate/maintainability/iterable-iterator/filter.svg)](https://codeclimate.com/github/iterable-iterator/filter/trends/churn)\n[![Code coverage (cov)](https://img.shields.io/codecov/c/gh/iterable-iterator/filter/main.svg)](https://codecov.io/gh/iterable-iterator/filter)\n[![Code technical debt](https://img.shields.io/codeclimate/tech-debt/iterable-iterator/filter.svg)](https://codeclimate.com/github/iterable-iterator/filter/trends/technical_debt)\n[![Documentation](https://iterable-iterator.github.io/filter/badge.svg)](https://iterable-iterator.github.io/filter/source.html)\n[![Package size](https://img.shields.io/bundlephobia/minzip/@iterable-iterator/filter)](https://bundlephobia.com/result?p=@iterable-iterator/filter)\n",
     "longname": "/home/runner/work/filter/filter/README.md",
     "name": "./README.md",
     "static": true,
@@ -752,7 +815,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"@iterable-iterator/filter\",\n  \"description\": \"Iterable filtering functions for JavaScript\",\n  \"version\": \"0.0.1\",\n  \"license\": \"AGPL-3.0\",\n  \"author\": \"make-github-pseudonymous-again\",\n  \"homepage\": \"https://iterable-iterator.github.io/filter\",\n  \"repository\": {\n    \"url\": \"https://github.com/iterable-iterator/filter\",\n    \"type\": \"git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/iterable-iterator/filter/issues\"\n  },\n  \"keywords\": [\n    \"filter\",\n    \"filterfalse\",\n    \"filtertrue\",\n    \"iter\",\n    \"iterable\",\n    \"iterator\"\n  ],\n  \"sideEffects\": false,\n  \"source\": \"src/index.js\",\n  \"main\": \"dist/index.js\",\n  \"module\": \"dist/index.module.js\",\n  \"esmodule\": \"dist/index.modern.js\",\n  \"umd:main\": \"dist/index.umd.js\",\n  \"unpkg\": \"dist/index.umd.js\",\n  \"exports\": {\n    \".\": {\n      \"browser\": \"./dist/index.module.js\",\n      \"umd\": \"./dist/index.umd.js\",\n      \"require\": \"./dist/index.js\",\n      \"default\": \"./dist/index.modern.js\"\n    }\n  },\n  \"files\": [\n    \"dist\"\n  ],\n  \"scripts\": {\n    \"build\": \"NODE_ENV=production microbundle\",\n    \"build-docs\": \"esdoc\",\n    \"build-gh-pages\": \"npm run build-docs\",\n    \"ci:test\": \"npm run lint-config && npm run lint && npm run cover\",\n    \"commit-msg\": \"commitlint --edit\",\n    \"cover\": \"NODE_ENV=cover c8 --all --src src --reporter lcov --reporter text-summary --reporter text npm test\",\n    \"debug\": \"NODE_ENV=debug npm run test -- -st --fail-fast\",\n    \"dev\": \"npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast\",\n    \"install-hooks\": \"husky install\",\n    \"lint\": \"xo\",\n    \"lint-and-fix\": \"npm run lint -- --fix\",\n    \"lint-config\": \"fixpack --dryRun\",\n    \"lint-config-and-fix\": \"fixpack || fixpack\",\n    \"postinstall\": \"npm run install-hooks\",\n    \"postpublish\": \"pinst --enable\",\n    \"precommit\": \"lint-staged\",\n    \"prepare\": \"npm run build\",\n    \"prepublishOnly\": \"pinst --disable\",\n    \"release\": \"np --message ':hatching_chick: release: Bumping to v%s.'\",\n    \"test\": \"ava\"\n  },\n  \"dependencies\": {},\n  \"devDependencies\": {\n    \"@aureooms/js-predicate\": \"^3.0.1\",\n    \"@babel/core\": \"7.13.15\",\n    \"@babel/preset-env\": \"7.13.15\",\n    \"@babel/register\": \"7.13.14\",\n    \"@commitlint/cli\": \"12.1.1\",\n    \"@iterable-iterator/list\": \"^0.0.2\",\n    \"@js-library/commitlint-config\": \"0.0.4\",\n    \"ava\": \"3.15.0\",\n    \"babel-plugin-transform-remove-console\": \"6.9.4\",\n    \"babel-plugin-unassert\": \"3.0.1\",\n    \"babel-preset-power-assert\": \"3.0.0\",\n    \"c8\": \"7.7.1\",\n    \"coveralls\": \"3.1.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"1.0.0\",\n    \"esdoc-inject-script-plugin\": \"1.0.0\",\n    \"esdoc-inject-style-plugin\": \"1.0.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"fixpack\": \"4.0.0\",\n    \"husky\": \"6.0.0\",\n    \"lint-staged\": \"10.5.4\",\n    \"microbundle\": \"0.13.0\",\n    \"np\": \"7.4.0\",\n    \"pinst\": \"2.1.6\",\n    \"power-assert\": \"1.6.1\",\n    \"regenerator-runtime\": \"0.13.7\",\n    \"xo\": \"0.38.2\"\n  },\n  \"ava\": {\n    \"files\": [\n      \"test/src/**/*\"\n    ],\n    \"require\": [\n      \"regenerator-runtime/runtime\",\n      \"@babel/register\"\n    ],\n    \"timeout\": \"1m\"\n  },\n  \"babel\": {\n    \"sourceMaps\": true,\n    \"presets\": [\n      [\n        \"@babel/preset-env\",\n        {\n          \"targets\": \"current node\"\n        }\n      ]\n    ],\n    \"plugins\": [\n      [\n        \"transform-remove-console\",\n        {\n          \"exclude\": [\n            \"log\",\n            \"error\",\n            \"warn\"\n          ]\n        }\n      ]\n    ],\n    \"env\": {\n      \"debug\": {\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"debug\",\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"test\": {\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"cover\": {\n        \"sourceMaps\": \"both\",\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"development\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": [\n                \"defaults\",\n                \"maintained node versions\"\n              ]\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"production\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": [\n                \"defaults\",\n                \"maintained node versions\"\n              ]\n            }\n          ]\n        ],\n        \"plugins\": [\n          \"babel-plugin-unassert\"\n        ]\n      }\n    }\n  },\n  \"lint-staged\": {\n    \"*.js\": [\n      \"npm run lint-and-fix\"\n    ],\n    \"package.json\": [\n      \"npm run lint-config-and-fix\"\n    ]\n  },\n  \"prettier\": {\n    \"trailingComma\": \"all\"\n  },\n  \"xo\": {\n    \"prettier\": true,\n    \"plugins\": [\n      \"unicorn\"\n    ],\n    \"rules\": {\n      \"unicorn/filename-case\": [\n        \"error\",\n        {\n          \"cases\": {\n            \"camelCase\": true,\n            \"pascalCase\": true\n          }\n        }\n      ]\n    },\n    \"overrides\": [\n      {\n        \"files\": [\n          \"doc/**\"\n        ],\n        \"env\": \"browser\"\n      }\n    ]\n  }\n}\n",
+    "content": "{\n  \"name\": \"@iterable-iterator/filter\",\n  \"description\": \"Iterable filtering functions for JavaScript\",\n  \"version\": \"0.1.0\",\n  \"license\": \"AGPL-3.0\",\n  \"author\": \"make-github-pseudonymous-again\",\n  \"homepage\": \"https://iterable-iterator.github.io/filter\",\n  \"repository\": {\n    \"url\": \"https://github.com/iterable-iterator/filter\",\n    \"type\": \"git\"\n  },\n  \"bugs\": {\n    \"url\": \"https://github.com/iterable-iterator/filter/issues\"\n  },\n  \"keywords\": [\n    \"filter\",\n    \"filterfalse\",\n    \"filtertrue\",\n    \"iter\",\n    \"iterable\",\n    \"iterator\"\n  ],\n  \"sideEffects\": false,\n  \"source\": \"src/index.js\",\n  \"main\": \"dist/index.js\",\n  \"module\": \"dist/index.module.js\",\n  \"esmodule\": \"dist/index.modern.js\",\n  \"umd:main\": \"dist/index.umd.js\",\n  \"unpkg\": \"dist/index.umd.js\",\n  \"exports\": {\n    \".\": {\n      \"browser\": \"./dist/index.module.js\",\n      \"umd\": \"./dist/index.umd.js\",\n      \"require\": \"./dist/index.js\",\n      \"default\": \"./dist/index.modern.js\"\n    }\n  },\n  \"files\": [\n    \"dist\"\n  ],\n  \"scripts\": {\n    \"build\": \"NODE_ENV=production microbundle\",\n    \"build-docs\": \"esdoc\",\n    \"build-gh-pages\": \"npm run build-docs\",\n    \"ci:test\": \"npm run lint-config && npm run lint && npm run cover\",\n    \"commit-msg\": \"commitlint --edit\",\n    \"cover\": \"NODE_ENV=cover c8 --all --src src --reporter lcov --reporter text-summary --reporter text npm test\",\n    \"debug\": \"NODE_ENV=debug npm run test -- -st --fail-fast\",\n    \"dev\": \"npm run lint-config-and-fix && npm run lint-and-fix && npm run cover -- -- -st --fail-fast\",\n    \"install-hooks\": \"husky install\",\n    \"lint\": \"xo\",\n    \"lint-and-fix\": \"npm run lint -- --fix\",\n    \"lint-config\": \"fixpack --dryRun\",\n    \"lint-config-and-fix\": \"fixpack || fixpack\",\n    \"postinstall\": \"npm run install-hooks\",\n    \"postpublish\": \"pinst --enable\",\n    \"precommit\": \"lint-staged\",\n    \"prepare\": \"npm run build\",\n    \"prepublishOnly\": \"pinst --disable\",\n    \"release\": \"np --message ':hatching_chick: release: Bumping to v%s.'\",\n    \"test\": \"ava\"\n  },\n  \"dependencies\": {\n    \"@iterable-iterator/zip\": \"^0.0.1\"\n  },\n  \"devDependencies\": {\n    \"@babel/core\": \"7.14.0\",\n    \"@babel/preset-env\": \"7.14.0\",\n    \"@babel/register\": \"7.13.16\",\n    \"@commitlint/cli\": \"12.1.1\",\n    \"@functional-abstraction/predicate\": \"3.0.2\",\n    \"@iterable-iterator/list\": \"0.0.2\",\n    \"@js-library/commitlint-config\": \"0.0.4\",\n    \"ava\": \"3.15.0\",\n    \"babel-plugin-transform-remove-console\": \"6.9.4\",\n    \"babel-plugin-unassert\": \"3.0.1\",\n    \"babel-preset-power-assert\": \"3.0.0\",\n    \"c8\": \"7.7.2\",\n    \"coveralls\": \"3.1.0\",\n    \"esdoc\": \"1.1.0\",\n    \"esdoc-ecmascript-proposal-plugin\": \"1.0.0\",\n    \"esdoc-inject-script-plugin\": \"1.0.0\",\n    \"esdoc-inject-style-plugin\": \"1.0.0\",\n    \"esdoc-standard-plugin\": \"1.0.0\",\n    \"fixpack\": \"4.0.0\",\n    \"husky\": \"6.0.0\",\n    \"lint-staged\": \"10.5.4\",\n    \"microbundle\": \"0.13.0\",\n    \"np\": \"7.5.0\",\n    \"pinst\": \"2.1.6\",\n    \"power-assert\": \"1.6.1\",\n    \"regenerator-runtime\": \"0.13.7\",\n    \"xo\": \"0.39.1\"\n  },\n  \"ava\": {\n    \"files\": [\n      \"test/src/**/*\"\n    ],\n    \"require\": [\n      \"regenerator-runtime/runtime\",\n      \"@babel/register\"\n    ],\n    \"timeout\": \"1m\"\n  },\n  \"babel\": {\n    \"sourceMaps\": true,\n    \"presets\": [\n      [\n        \"@babel/preset-env\",\n        {\n          \"targets\": \"current node\"\n        }\n      ]\n    ],\n    \"plugins\": [\n      [\n        \"transform-remove-console\",\n        {\n          \"exclude\": [\n            \"log\",\n            \"error\",\n            \"warn\"\n          ]\n        }\n      ]\n    ],\n    \"env\": {\n      \"debug\": {\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ],\n        \"plugins\": [\n          [\n            \"transform-remove-console\",\n            {\n              \"exclude\": [\n                \"debug\",\n                \"log\",\n                \"error\",\n                \"warn\"\n              ]\n            }\n          ]\n        ]\n      },\n      \"test\": {\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"cover\": {\n        \"sourceMaps\": \"both\",\n        \"presets\": [\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"development\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": [\n                \"defaults\",\n                \"maintained node versions\"\n              ]\n            }\n          ],\n          \"babel-preset-power-assert\"\n        ]\n      },\n      \"production\": {\n        \"presets\": [\n          [\n            \"@babel/preset-env\",\n            {\n              \"targets\": [\n                \"defaults\",\n                \"maintained node versions\"\n              ]\n            }\n          ]\n        ],\n        \"plugins\": [\n          \"babel-plugin-unassert\"\n        ]\n      }\n    }\n  },\n  \"lint-staged\": {\n    \"*.js\": [\n      \"npm run lint-and-fix\"\n    ],\n    \"package.json\": [\n      \"npm run lint-config-and-fix\"\n    ]\n  },\n  \"prettier\": {\n    \"trailingComma\": \"all\"\n  },\n  \"xo\": {\n    \"prettier\": true,\n    \"plugins\": [\n      \"unicorn\"\n    ],\n    \"rules\": {\n      \"unicorn/filename-case\": [\n        \"error\",\n        {\n          \"cases\": {\n            \"camelCase\": true,\n            \"pascalCase\": true\n          }\n        }\n      ]\n    },\n    \"overrides\": [\n      {\n        \"files\": [\n          \"doc/**\"\n        ],\n        \"env\": \"browser\"\n      }\n    ]\n  }\n}\n",
     "longname": "/home/runner/work/filter/filter/package.json",
     "name": "package.json",
     "static": true,

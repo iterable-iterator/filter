@@ -1,5 +1,11 @@
 window.esdocSearchIndex = [
   [
+    "@iterable-iterator/filter/src/compress.js~compress",
+    "function/index.html#static-function-compress",
+    "<span>compress</span> <span class=\"search-result-import-path\">@iterable-iterator/filter/src/compress.js</span>",
+    "function"
+  ],
+  [
     "@iterable-iterator/filter/src/filter.js~filter",
     "function/index.html#static-function-filter",
     "<span>filter</span> <span class=\"search-result-import-path\">@iterable-iterator/filter/src/filter.js</span>",
@@ -298,6 +304,12 @@ window.esdocSearchIndex = [
     "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
     "src/.external-ecmascript.js~undefined",
     "external"
+  ],
+  [
+    "src/compress.js",
+    "file/src/compress.js.html",
+    "src/compress.js",
+    "file"
   ],
   [
     "src/filter.js",
