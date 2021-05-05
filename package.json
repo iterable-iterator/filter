@@ -61,7 +61,7 @@
     "test": "ava"
   },
   "dependencies": {
-    "@iterable-iterator/zip": "^0.0.1"
+    "@iterable-iterator/zip": "^0.0.2"
   },
   "devDependencies": {
     "@babel/core": "7.14.0",
