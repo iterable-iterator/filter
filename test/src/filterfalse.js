@@ -1,9 +1,8 @@
 import test from 'ava';
 
-import {le, repr} from './_fixtures.js';
-
 import {list} from '@iterable-iterator/list';
 import {filterfalse} from '../../src/index.js';
+import {le, repr} from './_fixtures.js';
 
 const macro = (t, predicate, input, output) => {
 	t.deepEqual(list(filterfalse(predicate, input)), output);
