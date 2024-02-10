@@ -1,8 +1,8 @@
 import test from 'ava';
 
 import {list} from '@iterable-iterator/list';
-import {filter, filtertrue} from '../../src/index.js';
 import {gt, repr} from './_fixtures.js';
+import {filter, filtertrue} from '#module';
 
 test('filtertrue is filter', (t) => {
 	t.is(filtertrue, filter);

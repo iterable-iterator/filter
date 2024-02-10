@@ -1,8 +1,8 @@
 import test from 'ava';
 
 import {list} from '@iterable-iterator/list';
-import {compress} from '../../src/index.js';
 import {repr} from './_fixtures.js';
+import {compress} from '#module';
 
 const macro = (t, iterable, selector, expected) => {
 	t.deepEqual(list(compress(iterable, selector)), expected);
