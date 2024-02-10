@@ -24,8 +24,7 @@ compress( count( 0 , 1 ) , cycle( [ true , false ] ) ) ; // 0 2 4 6 ...
 [![License](https://img.shields.io/github/license/iterable-iterator/filter.svg)](https://raw.githubusercontent.com/iterable-iterator/filter/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/@iterable-iterator/filter.svg)](https://www.npmjs.org/package/@iterable-iterator/filter)
 [![Tests](https://img.shields.io/github/workflow/status/iterable-iterator/filter/ci:test?event=push&label=tests)](https://github.com/iterable-iterator/filter/actions/workflows/ci:test.yml?query=branch:main)
-[![Dependencies](https://img.shields.io/david/iterable-iterator/filter.svg)](https://david-dm.org/iterable-iterator/filter)
-[![Dev dependencies](https://img.shields.io/david/dev/iterable-iterator/filter.svg)](https://david-dm.org/iterable-iterator/filter?type=dev)
+[![Dependencies](https://img.shields.io/librariesio/github/iterable-iterator/filter.svg)](https://github.com/iterable-iterator/filter/network/dependencies)
 [![GitHub issues](https://img.shields.io/github/issues/iterable-iterator/filter.svg)](https://github.com/iterable-iterator/filter/issues)
 [![Downloads](https://img.shields.io/npm/dm/@iterable-iterator/filter.svg)](https://www.npmjs.org/package/@iterable-iterator/filter)
 
