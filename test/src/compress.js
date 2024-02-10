@@ -1,7 +1,9 @@
 import test from 'ava';
 
 import {list} from '@iterable-iterator/list';
+
 import {repr} from './_fixtures.js';
+
 import {compress} from '#module';
 
 const macro = (t, iterable, selector, expected) => {
